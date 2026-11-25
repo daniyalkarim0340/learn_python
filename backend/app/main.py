@@ -2,11 +2,15 @@
 from fastapi import FastAPI
 
 from app.schemas.user import UserCreate
+from app.routes.product import router as product_router
 
 app = FastAPI(
     title="User Registration API",
     version="1.0.0"
 )
+
+# Register Product routes
+app.include_router(product_router)
 
 
 @app.get("/")
